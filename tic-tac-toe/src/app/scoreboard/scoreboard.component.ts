@@ -9,13 +9,18 @@ import { Scoreboard } from './models/scoreboard';
 })
 export class ScoreboardComponent implements OnInit {
 
-  constructor(gameService: GameService) { 
-    this.scoreBoard = gameService.scoreboard;
+  constructor(private gameService: GameService) { 
+    this.Restart()
   }
 
   scoreBoard: Scoreboard;
 
   ngOnInit() {
+  }
+
+  Restart() {
+    this.gameService.onInit()
+    this.scoreBoard = this.gameService.scoreboard;
   }
 
 }

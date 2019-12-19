@@ -8,22 +8,22 @@ import { Scoreboard } from './scoreboard/models/scoreboard';
 })
 export class GameService {
 
-  public board: Board;
-  public turn: Turn;
-  public scoreboard: Scoreboard;
+  public board: Board = new Board();
+  public turn: Turn = new Turn();
+  public scoreboard: Scoreboard = new Scoreboard();
 
   constructor() { }
 
   public onInit() {
-    this.scoreboard = new Scoreboard();
-    this.turn = new Turn();
-    this.board = new Board();
+    this.scoreboard.firstPlayerScore = 0;
+    this.scoreboard.secondPlayerScore = 0;
     this.onStart();
   }
 
   public onStart() {
     this.turn.turnIndex = 1;
     this.board.positions.fill('');
+
   }
 
   public makePlay(position) {
