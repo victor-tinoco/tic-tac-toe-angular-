@@ -1,5 +1,5 @@
 export class Scoreboard {
-    constructor(firstPlayerScore: number, secondPlayerScore: number) {
+    constructor(firstPlayerScore: number = 0, secondPlayerScore: number = 0) {
         this.firstPlayerScore = firstPlayerScore;
         this.secondPlayerScore = secondPlayerScore;
     }
