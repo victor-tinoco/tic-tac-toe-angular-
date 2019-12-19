@@ -42,3 +42,12 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+@font-face {
+    font-family: filsonbold;
+    src: url(./assets/font/FilsonBold.ttf);
+}
+@font-face {
+    font-family: filsonlight;
+    src: url(./assets/font/FilsonLight.ttf);
+}

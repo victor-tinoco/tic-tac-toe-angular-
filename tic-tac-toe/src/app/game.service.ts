@@ -16,27 +16,29 @@ export class GameService {
 
   public onInit() {
     this.scoreboard = new Scoreboard();
+    this.turn = new Turn();
+    this.board = new Board();
     this.onStart();
   }
 
   public onStart() {
-    this.turn = new Turn();
-    this.board = new Board();
+    this.turn.turnIndex = 1;
+    this.board.positions.fill('');
   }
 
   public makePlay(position) {
-    if (this.board[position] === '') {
+    if (this.board.positions[position] === '') {
       const turn = this.turn.turnIndex;
-      this.board[position] = turn === 1 ? 'X' : 'O';
-        if (!this.checkDraw()) {
-          if (!this.checkWin()) {
-              this.turn.change();
-          } else {
-              this.scoreboard.registerWin(this.turn.turnIndex);
-              this.gameover();
-          }
-      } else {
+      this.board.positions[position] = turn === 1 ? 'X' : 'O';
+      if (!this.checkDraw()) {
+        if (!this.checkWin()) {
+          this.turn.change();
+        } else {
+          this.scoreboard.registerWin(this.turn.turnIndex);
           this.gameover();
+        }
+      } else {
+        this.gameover();
       }
     }
   }
@@ -46,9 +48,9 @@ export class GameService {
     this.board.winSequences.forEach(sequence => {
       const turnSymbol = this.turn.turnIndex === 1 ? 'X' : 'O';
       if (
-        this.board[sequence[0]] === turnSymbol &&
-        this.board[sequence[1]] === turnSymbol &&
-        this.board[sequence[2]] === turnSymbol
+        this.board.positions[sequence[0]] === turnSymbol &&
+        this.board.positions[sequence[1]] === turnSymbol &&
+        this.board.positions[sequence[2]] === turnSymbol
       )
         gameover = true;
     });
@@ -56,17 +58,17 @@ export class GameService {
   }
 
   checkDraw() {
-      let draw = true;
-      this.board.positions.forEach(pos => {
-          if (pos === '')
-              draw = false
-      });
-      return draw;
+    let draw = true;
+    this.board.positions.forEach(pos => {
+      if (pos === '')
+        draw = false
+    });
+    return draw;
   }
 
   gameover() {
-      setTimeout(() => {
-          this.onStart();
-      }, 1000);
+    setTimeout(() => {
+      this.onStart();
+    }, 1000);
   }
 }

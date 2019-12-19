@@ -1,11 +1,13 @@
-div {
+.square {
     background-color: #6b6b6b;
     color: white;
-    font: 60px filsonbold;
+    font: 60px filsonbold;  
+    width: 90%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 10px;
+    align-items: center;
+    margin: 5%;
+    height: 90%;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.20);
     border-radius: 5px;
     cursor: pointer;
