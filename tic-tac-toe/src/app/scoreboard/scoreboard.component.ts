@@ -19,7 +19,7 @@ export class ScoreboardComponent implements OnInit {
   }
 
   Restart() {
-    this.gameService.onInit()
+    this.gameService.init()
     this.scoreBoard = this.gameService.scoreboard;
   }
 

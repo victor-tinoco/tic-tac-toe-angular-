@@ -14,13 +14,13 @@ export class GameService {
 
   constructor() { }
 
-  public onInit() {
+  public init() {
     this.scoreboard.firstPlayerScore = 0;
     this.scoreboard.secondPlayerScore = 0;
-    this.onStart();
+    this.start();
   }
 
-  public onStart() {
+  public start() {
     this.turn.turnIndex = 1;
     this.board.positions.fill('');
 
@@ -68,7 +68,7 @@ export class GameService {
 
   gameover() {
     setTimeout(() => {
-      this.onStart();
+      this.start();
     }, 1000);
   }
 }

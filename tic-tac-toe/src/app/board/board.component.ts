@@ -10,7 +10,7 @@ import { Board } from './models/board';
 export class BoardComponent implements OnInit {
 
   constructor(private gameService: GameService) {
-    this.gameService.onInit();
+    this.gameService.init();
     this.board = this.gameService.board;
   }
   
