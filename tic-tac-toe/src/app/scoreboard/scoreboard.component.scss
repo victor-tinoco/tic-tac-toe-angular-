@@ -1,0 +1,42 @@
+#scoreboard {    
+    background-color: #414141;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    height: fit-content;
+
+    h1 {
+        font: 30px filsonbold;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    > div {
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        font-family: filsonlight;
+    }
+
+    > div > div {
+        padding: 4px;
+    }
+
+    button {
+        background-color: #ea6900;
+        color: white;
+        font: 16px filsonlight;
+        margin-top: 10px;
+        border: 0;
+        outline: 0;
+        text-transform: uppercase;
+        border-radius: 20px;
+        padding: 5px 10px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #dd6300;
+        }
+    }
+}
