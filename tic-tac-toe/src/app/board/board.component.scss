@@ -1,0 +1,9 @@
+div {
+    background-color: #414141;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    padding: 10px;
+    margin-right: 30px;
+}
